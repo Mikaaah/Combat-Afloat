@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a reproducible Combat Afloat problem.
+title: "[Bug] "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Combat Afloat version
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Minecraft, loader and dependency versions
+      description: Include Epic Fight, Sable, Create/Aeronautics and other combat or rendering addons.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened?
+      description: Describe the expected result and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the action or skill, ship type, movement/tilt, perspective and multiplayer status.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or recording
+      description: Attach relevant logs, a crash report or a short clip.

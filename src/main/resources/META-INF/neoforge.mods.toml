@@ -1,0 +1,39 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "GPL-3.0-only"
+
+[[mods]]
+modId = "combatafloat"
+version = "0.1.0-beta.2"
+displayName = "Combat Afloat"
+authors = "Mikaaah"
+description = '''Epic Fight compatibility for Sable ships, including Create Aeronautics.'''
+
+[[mixins]]
+config = "combatafloat.mixins.json"
+
+[[dependencies.combatafloat]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1]"
+side = "BOTH"
+
+[[dependencies.combatafloat]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.262,)"
+side = "BOTH"
+
+[[dependencies.combatafloat]]
+modId = "epicfight"
+type = "required"
+versionRange = "[21.17.3.1]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.combatafloat]]
+modId = "sable"
+type = "required"
+versionRange = "[2.0.5,2.0.6)"
+ordering = "AFTER"
+side = "BOTH"

@@ -1,0 +1,39 @@
+name: Build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Fetch pinned dependencies
+        run: python3 tools/download_dependencies.py
+      - name: Validate metadata and resources
+        run: |
+          python3 - <<'CHECK'
+          import json, tomllib
+          from pathlib import Path
+          with Path('src/main/resources/META-INF/neoforge.mods.toml').open('rb') as stream:
+              tomllib.load(stream)
+          for path in Path('src/main/resources').rglob('*.json'):
+              json.loads(path.read_text(encoding='utf-8'))
+          CHECK
+      - name: Build and run unit tests
+        run: ./gradlew test jar --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: combat-afloat-neoforge-1.21.1
+          path: build/libs/*.jar
