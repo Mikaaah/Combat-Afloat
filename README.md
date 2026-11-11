@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.imgur.com/RxiYjzR.png" alt="Combat Afloat" width="100%"></p>
+<p align="center"><img src="docs/branding/banner.png" alt="Combat Afloat" width="100%"></p>
 
 <h1 align="center">Combat Afloat</h1>
 
